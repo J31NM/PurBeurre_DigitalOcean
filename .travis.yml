@@ -1,12 +1,12 @@
 language: python
 python:
-       - '3.8.10'
+        - '3.8.10'
 
 before_script:
         - pip install -r requirements.txt
 
 branches:
-        only:
+    only:
         - staging
 
 env: DJANGO_SETTINGS_MODULE="pur_beurre.settings"
@@ -15,6 +15,6 @@ services:
         - postgresql
 
 script:
-        - python manage.py test
+        - ./manage.py test
 
 
