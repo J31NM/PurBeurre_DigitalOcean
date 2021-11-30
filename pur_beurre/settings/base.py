@@ -25,7 +25,7 @@ IS_IN_PRODUCTION = os.environ.get('ENV') == 'PRODUCTION'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if IS_IN_PRODUCTION:
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+    SECRET_KEY = os.environ.get("y_cd%5$wj88xt3-0nf-dypckv3k^7ib02o5t5)p82^xm#ou7c1")
 else:
     SECRET_KEY = 'y_cd%5$wj88xt3-0nf-dypckv3k^7ib02o5t5)p82^xm#ou7c1'
     POSTGRE_KEY = os.environ.get("POSTGRE_KEY")
@@ -33,10 +33,10 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not IS_IN_PRODUCTION
 
-ALLOWED_HOSTS = ['purbeurre-jm.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['purbeurre-jm.herokuapp.com', 'localhost', '127.0.0.1', '178.62.9.219']
 
 if IS_IN_PRODUCTION:
-    ALLOWED_HOSTS += ['.herokuapp.com', ]
+    ALLOWED_HOSTS += ['178.62.9.219']
 
 
 # # Application definition
@@ -78,8 +78,8 @@ TEMPLATES = [
     },
 ]
 
-if IS_IN_PRODUCTION:
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+#if IS_IN_PRODUCTION:
+#    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 ROOT_URLCONF = 'pur_beurre.urls'
 WSGI_APPLICATION = 'pur_beurre.wsgi.application'
@@ -89,8 +89,8 @@ WSGI_APPLICATION = 'pur_beurre.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {}
 
-if IS_IN_PRODUCTION:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+#if IS_IN_PRODUCTION:
+#    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -141,7 +141,7 @@ STATICFILES_DIRS = (
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-if IS_IN_PRODUCTION:
+#if IS_IN_PRODUCTION:
     # Activate Django-Heroku.
-    import django_heroku
-    django_heroku.settings(locals())
+#    import django_heroku
+#    django_heroku.settings(locals())
