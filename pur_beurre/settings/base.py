@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-
 import dj_database_url
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +38,21 @@ ALLOWED_HOSTS = ['purbeurre-jm.herokuapp.com', 'localhost', '127.0.0.1', '178.62
 
 if IS_IN_PRODUCTION:
     ALLOWED_HOSTS += ['178.62.9.219']
+
+if IS_IN_PRODUCTION:
+    sentry_sdk.init(
+    dsn="https://b8387b93d7ac419db6d277d4bb0128f8@o1081546.ingest.sentry.io/6089041",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
 
 
 # # Application definition
