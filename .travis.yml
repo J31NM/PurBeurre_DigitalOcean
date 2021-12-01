@@ -2,17 +2,17 @@ language: python
 python:
     - '3.8'
 
-before_script:
-    - pip install -r requirements.txt
-
 branches:
     only:
     - master
 
-env: DJANGO_SETTINGS_MODULE="pur_beurre.settings"
+before_script:
+    - pip install -r requirements.txt
 
 services:
     - postgresql
+
+env: DJANGO_SETTINGS_MODULE=pur_beurre.settings.travis
 
 script:
     - python manage.py test
