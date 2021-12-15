@@ -34,15 +34,15 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not IS_IN_PRODUCTION
 
-ALLOWED_HOSTS = ['purbeurre-jm.herokuapp.com', 'localhost', '127.0.0.1', '178.62.9.219']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '178.62.9.219', 'purbeurre-jm.xyz', 'www.purbeurre.xyz']
 
 if IS_IN_PRODUCTION:
-    ALLOWED_HOSTS += ['178.62.9.219']
+    ALLOWED_HOSTS += ['178.62.9.219', 'purbeurre-jm.xyz', 'www.purbeurre-jm.xyz']
 
-if IS_IN_PRODUCTION:
-    sentry_sdk.init(
-    dsn="https://b8387b93d7ac419db6d277d4bb0128f8@o1081546.ingest.sentry.io/6089041",
-    integrations=[DjangoIntegration()],
+
+sentry_sdk.init(
+        dsn="https://36b2d881fe984620aecad2cead50a405@o1081546.ingest.sentry.io/6089158",
+        integrations=[DjangoIntegration()],
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
